@@ -1,0 +1,2 @@
+# sortingVisualizer
+The SDL2 Sorting Visualizer is a C++ project that visually demonstrates sorting algorithms using the SDL2 library. Array elements are shown as vertical bars, and their movement reflects comparisons and swaps in real-time. It helps users understand sorting logic through animated, interactive graphics.
