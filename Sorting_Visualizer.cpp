@@ -22,19 +22,19 @@ bool complete=false;
 bool init()
 {
     bool success=true;
-    if(SDL_Init(SDL_INIT_VIDEO)<0)
+    if(SDL_Init(SDL_INIT_VIDEO)<0) // to initiate the sdl video tools (0--> everything went right , -ve --> some error has occured)
     {
-        cout<<"Couldn't initialize SDL. SDL_Error: "<<SDL_GetError();
+        cout<<"Couldn't initialize SDL. SDL_Error: "<<SDL_GetError(); // to get sdl error
         success=false;
     }
     else
-    {
-        if(!(SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1")))
+    
+        if(!(SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1"))) // to control quality of texture scaling 
         {
             cout<<"Warning: Linear Texture Filtering not enabled.\n";
         }
 
-        window=SDL_CreateWindow("Sorting Visualizer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+        window=SDL_CreateWindow("Sorting Visualizer", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN); // this is where we are creating the window where sorting visualizer will be displayed
         if(window==NULL)
         {
             cout<<"Couldn't create window. SDL_Error: "<<SDL_GetError();
@@ -49,7 +49,7 @@ bool init()
                 success=false;
             }
         }
-    }
+    
 
     return success;
 }
@@ -65,9 +65,10 @@ void close()
     SDL_Quit();
 }
 
+
 void visualize(int x=-1, int y=-1, int z=-1)
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);// setting upt the r,g,b, and the opacity of the drawer
     SDL_RenderClear(renderer);
 
     int j=0;
