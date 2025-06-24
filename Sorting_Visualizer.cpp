@@ -72,27 +72,27 @@ void visualize(int x = -1, int y = -1, int z = -1)
     int j = 0;
     for (int i = 0; i <= SCREEN_WIDTH - rectSize; i += rectSize)
     {
-        SDL_PumpEvents();
+        SDL_PumpEvents(); // what is the point of this function
 
         SDL_Rect rect = {i, 0, rectSize, arr[j]};
         if (complete)
         {
-            SDL_SetRenderDrawColor(renderer, 100, 180, 100, 0);
+            SDL_SetRenderDrawColor(renderer, 100, 180, 100, 0); // green
             SDL_RenderDrawRect(renderer, &rect);
         }
         else if (j == x || j == z)
         {
-            SDL_SetRenderDrawColor(renderer, 100, 180, 100, 0);
+            SDL_SetRenderDrawColor(renderer, 100, 180, 100, 0); // green
             SDL_RenderFillRect(renderer, &rect);
         }
         else if (j == y)
         {
-            SDL_SetRenderDrawColor(renderer, 165, 105, 189, 0);
+            SDL_SetRenderDrawColor(renderer, 165, 105, 189, 0); // purple
             SDL_RenderFillRect(renderer, &rect);
         }
         else
         {
-            SDL_SetRenderDrawColor(renderer, 170, 183, 184, 0);
+            SDL_SetRenderDrawColor(renderer, 170, 183, 184, 0); // greyish
             SDL_RenderDrawRect(renderer, &rect);
         }
         j++;
